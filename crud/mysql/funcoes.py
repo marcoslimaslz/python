@@ -26,7 +26,7 @@ def fct_Executar(cursor, comando):
     else:
         print('# Comando SQL realizado com sucesso.')
 
-def CriarBancoDados(conexao, nomebanco):   
+def fct_CriarBancoDados(conexao, nomebanco):   
     cursor = conexao.cursor()               
     cmdSQL = f'CREATE DATABASE IF NOT EXISTS {nomebanco}'
     cmdSQL = cmdSQL + '\n CHARACTER SET utf8mb4'
@@ -36,9 +36,9 @@ def CriarBancoDados(conexao, nomebanco):
     fct_Comitar(conexao)    
 
     cursor.close()   
-    FechaConexao(conexao)
+    fct_FechaConexao(conexao)
 
-def AbreConexao(opcao = 1):
+def fct_AbreConexao(opcao = 1):
     try:
         if opcao == 0:
             return mysql.connector.connect(
@@ -58,10 +58,10 @@ def AbreConexao(opcao = 1):
     else:
         print('>> Conexão no banco de dados realizada com sucesso!')    
      
-def FechaConexao(conexao):
+def fct_FechaConexao(conexao):
     conexao.close()
 
-def GravarLog(conexao, descricao):
+def fct_GravarLog(conexao, descricao):
     cursor = conexao.cursor()
     cmdSQL = f'INSERT INTO log (descricao) VALUES("{descricao}")'    
     
@@ -70,7 +70,7 @@ def GravarLog(conexao, descricao):
 
     cursor.close()
 
-def CriarTabelaLog(conexao):
+def fct_CriarTabelaLog(conexao):
     cursor = conexao.cursor()
     cmdSQL = 'DROP TABLE IF EXISTS log;'
 
