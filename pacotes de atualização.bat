@@ -2,7 +2,7 @@ echo -------------------------
 echo Pacotes - Atualizar
 echo -------------------------
 
-echo "Atualizar o PIP"
+echo "Atualizar o PIP, em caso de erro, executar o prompt como ADMINISTRADOR"
 pip install --upgrade pip
 
 echo "Pacote para Image"
